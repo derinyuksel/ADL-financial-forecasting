@@ -12,12 +12,13 @@ hybrid K-Means + Hidden Markov Model pipeline (planned for final submission).
 
 ## Authors
 
-- **Lara Yıldırım** (2100003941)
-- **Belkıs Derin Yüksel** (2200001724)
+- **Derin Yüksel**
+- **Lara Yıldırım**
 
-**Course:** COM0415 Applied Deep Learning
-**Instructor:** Doç. Dr. Fatma Patlar Akbulut
-**Institution:** Istanbul Kültür University
+
+- **Course:** COM0415 Applied Deep Learning
+
+- **Institution:** Istanbul Kültür University
 
 ---
 
