@@ -44,24 +44,27 @@ This repository contains the **interim submission**. Progress so far:
 
 ```
 ADL-financial-forecasting/
-├── data/                             # Cleaned datasets (not tracked if large)
+├── data/                                   #datasets
+│   ├── 2026-03-MD.csv                      # March 2026 market data 
+│   └── financial_data.csv                  # Raw financial dataset
 ├── notebooks/
-│   ├── data_collection_cleaning.ipynb  # Builds the 5-feature merged dataset
-│   ├── eda_initial.ipynb               # Exploratory analysis & correlation heatmap
-│   └── baseline_lstm_colab.ipynb       # End-to-end LSTM baseline (Colab-ready)
-├── papers/                           # Reference papers supporting the methodology
+│   ├── data_collection_cleaning.ipynb      # Builds the 5-feature merged dataset
+│   ├── eda_initial.ipynb                   # Exploratory analysis & correlation heatmap
+│   └── baseline_lstm_colab.ipynb           # End-to-end LSTM baseline (Colab-ready)
+├── papers/                                 # Reference papers supporting the methodology
 ├── results/
-│   ├── bist_price_history.png          # Figure 1 of the interim report
-│   ├── correlation_heatmap.png         # Figure 2 of the interim report
-│   ├── transformer_architecture.png    # Original architecture diagram (v1)
-│   ├── transformer_architecture_v2.png # Updated architecture diagram (log-return output)
-│   ├── lstm_baseline_plot.png          # Training curves + predictions vs. actuals
-│   └── interim_report.docx             # Interim submission document
+│   ├── bist_price_history.png              # Figure 1 of the interim report
+│   ├── correlation_heatmap.png             # Figure 2 of the interim report
+│   ├── transformer_architecture.png        # Original architecture diagram (v1)
+│   ├── transformer_architecture_v2.png     # Updated architecture diagram (log-return output)
+│   ├── lstm_baseline_plot.png              # Training curves + predictions vs. actuals
+│   └── interim_report.docx                 # Interim submission document
 ├── src/
-│   └── baseline_lstm.py              # Standalone PyTorch LSTM baseline
-├── requirements.txt                  # Pinned Python dependencies
+│   └── baseline_lstm.py                   # Standalone PyTorch LSTM baseline
+├── requirements.txt                        # Pinned Python dependencies
 ├── .gitignore
-└── README.md                         # This file
+└── README.md                              # This file
+
 ```
 
 ---
