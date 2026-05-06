@@ -1,6 +1,6 @@
 # ADL Financial Forecasting — Python dependencies
 #
-# Pin to versions known to be compatible with the notebooks and baseline_lstm.py.
+# Pin to versions known to be compatible with the notebooks and standalone scripts.
 # Tested on Google Colab (Python 3.11).
 #
 # Install with:
@@ -17,6 +17,9 @@ torch>=2.2
 
 # Classical ML / utilities
 scikit-learn>=1.3
+
+# Probabilistic models (regime detection)
+hmmlearn>=0.3
 
 # Data acquisition
 yfinance>=0.2.40        # Yahoo Finance (BIST 100, S&P 500)
