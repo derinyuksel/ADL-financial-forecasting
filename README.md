@@ -67,6 +67,7 @@ ADL-financial-forecasting/
 ├── src/
 │   ├── baseline_lstm.py                    # Standalone PyTorch LSTM baseline
 │   └── transformer_mcd.py                  # Standalone Transformer + MC Dropout
+├── ADL_Presentation.pptx                  # Final presentation slides (12 slides, 10 min)
 ├── requirements.txt                        # Pinned Python dependencies
 ├── .gitignore
 └── README.md
