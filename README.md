@@ -68,10 +68,11 @@ ADL-financial-forecasting/
 ├── src/
 │   ├── baseline_lstm.py                    # Standalone PyTorch LSTM baseline
 │   └── transformer_mcd.py                  # Standalone Transformer + MC Dropout
-├── COM0415_ADL_Presentation.pptx           # Final presentation slides
-├── requirements.txt                        # Pinned Python dependencies (incl. hmmlearn>=0.3)
 ├── .gitignore
-└── README.md
+├── COM0415_ADL_Presentation.pptx           # Final presentation slides     
+├── README.md
+└── Uncertainty_Aware_Financial_Forecasting_Final_Report.pdf                        # Final IEEE Report
+└── requirements.txt                         # Pinned Python dependencies (incl. hmmlearn>=0.3)
 ```
 
 ---
