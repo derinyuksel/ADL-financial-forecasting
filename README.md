@@ -26,7 +26,7 @@ K-Means + Hidden Markov Model pipeline.
 | Component | Status | Notes |
 |---|---|---|
 | Related work review | ✅ Complete | Six papers, three pillars (Transformer / MCD / Regime Detection) |
-| Dataset pipeline | ✅ Complete | 4,223 daily observations, 5 features, chronological splits |
+| Dataset pipeline | ✅ Complete | 4,231 daily observations, 5 features, chronological splits |
 | Exploratory analysis | ✅ Complete | Price history + correlation heatmap; UNRATE excluded (ρ with INDPRO = −0.85) |
 | Methodology design | ✅ Complete | Encoder-only Transformer + MC Dropout head, D=5, T=30 |
 | Baseline (LSTM) | ✅ Complete | 2-layer LSTM, ~53k params, honest results on 2024–2026 test window |
@@ -42,16 +42,17 @@ K-Means + Hidden Markov Model pipeline.
 ADL-financial-forecasting/
 ├── data/
 │   ├── 2026-03-MD.csv                      # March 2026 FRED-MD monthly data (manual upload)
-│   └── financial_data.csv                  # Final merged dataset (4,223 × 5 features)
+│   └── financial_data.csv                  # Final merged dataset (4,231 × 5 features)
 ├── notebooks/
 │   ├── data_collection_cleaning.ipynb      # Builds the 5-feature merged dataset
 │   ├── eda_initial.ipynb                   # Exploratory analysis & correlation heatmap
 │   ├── baseline_lstm_colab.ipynb           # End-to-end LSTM baseline (Colab-ready)
 │   ├── transformer_mcd_colab.ipynb         # Transformer + Monte Carlo Dropout (Colab-ready)
-│   └── regime_detection_colab.ipynb        # K-Means + HMM market regime detection (Colab-ready)
+│   ├── regime_detection_colab.ipynb        # K-Means + HMM market regime detection (Colab-ready)
+│   └── demo_live_forecast.ipynb            # Live demo: real-time forecast + regime (Colab-ready)
 ├── papers/                                 # Reference papers supporting the methodology
 │   ├── jrfm-19-00203.pdf                   # Liu (2026): Transformer vs classical models
-│   ├── s44443-025-00045-y.pdf              # Hadizadeh et al. (2025): Dual Attention
+│   ├── A novel transformer-based dual attention architecture for the prediction of financial time series.pdf  # Hadizadeh et al. (2025): Dual Attention
 │   ├── gal16.pdf                           # Gal & Ghahramani (2016): MC Dropout = Bayesian inference
 │   ├── 2505.15671v1.pdf                    # Asgharnezhad et al. (2025): Enhanced MC Dropout
 │   └── jdmdc-57.pdf                        # Haryani et al. (2026): K-Means + HMM regimes
@@ -67,8 +68,8 @@ ADL-financial-forecasting/
 ├── src/
 │   ├── baseline_lstm.py                    # Standalone PyTorch LSTM baseline
 │   └── transformer_mcd.py                  # Standalone Transformer + MC Dropout
-├── COM0415_ADL_Presentation                 # Final presentation slides
-├── requirements.txt                        # Pinned Python dependencies
+├── COM0415_ADL_Presentation.pptx           # Final presentation slides
+├── requirements.txt                        # Pinned Python dependencies (incl. hmmlearn>=0.3)
 ├── .gitignore
 └── README.md
 ```
@@ -83,7 +84,7 @@ ADL-financial-forecasting/
 | [Yahoo Finance](https://finance.yahoo.com/) | S&P 500 daily close (`^GSPC`) |
 | [FRED-MD](https://research.stlouisfed.org/econ/mccracken/fred-databases/) | CPI (`CPIAUCSL`), Fed Funds Rate (`FEDFUNDS`), Industrial Production (`INDPRO`) |
 
-Daily price data covers **2010-01-04 to 2026-04-13** (N = 4,223 trading days).
+Daily price data covers **2010-01-04 to 2026-04-23** (N = 4,231 trading days).
 Macroeconomic series are published monthly and forward-filled to daily frequency.
 
 **Feature Selection Note:** UNRATE was excluded due to strong negative correlation
@@ -131,6 +132,7 @@ and run all cells. Each notebook prompts for `financial_data.csv` upload.
 | `baseline_lstm_colab.ipynb` | 2-layer LSTM baseline, ~2–5 min on CPU |
 | `transformer_mcd_colab.ipynb` | Transformer + MC Dropout, GPU recommended |
 | `regime_detection_colab.ipynb` | K-Means + HMM regime detection |
+| `demo_live_forecast.ipynb` | Live demo: next-day forecast + uncertainty + regime |
 
 ### Option B — Local (standalone scripts)
 
@@ -154,7 +156,7 @@ python src/transformer_mcd.py --data data/financial_data.csv --out_dir results/ 
 **Split (strictly chronological, no shuffling):**
 - Train: 2010-01-04 → 2022-12-31
 - Validation: 2023-01-01 → 2023-12-31
-- Test: 2024-01-01 → 2026-04-13
+- Test: 2024-01-01 → 2026-04-23
 
 ### Model Architecture
 
