@@ -64,14 +64,14 @@ ADL-financial-forecasting/
 │   ├── lstm_baseline_plot.png              # LSTM training curves + predictions vs actuals
 │   ├── transformer_results_plot.png        # Transformer training curves + predictions + uncertainty band
 │   ├── regime_detection_plot.png           # K-Means & HMM regimes on BIST 100 price
-│   └── Uncertainty_Aware_Financial_Forecasting_FinalReport.pdf  # Final submission document
+│  
 ├── src/
 │   ├── baseline_lstm.py                    # Standalone PyTorch LSTM baseline
 │   └── transformer_mcd.py                  # Standalone Transformer + MC Dropout
 ├── .gitignore
 ├── COM0415_ADL_Presentation.pptx           # Final presentation slides     
 ├── README.md
-└── Uncertainty_Aware_Financial_Forecasting_Final_Report.pdf                        # Final IEEE Report
+└── Uncertainty_Aware_Financial_Forecasting_Final_Report.pdf               # Final IEEE submission document
 └── requirements.txt                         # Pinned Python dependencies (incl. hmmlearn>=0.3)
 ```
 
